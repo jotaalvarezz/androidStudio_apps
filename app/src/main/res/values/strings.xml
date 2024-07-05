@@ -1,3 +1,6 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">Calculadora Basica</string>
+    <string name="txt_title">Calculadora Basica</string>
+    <string name="txt_hint">valor</string>
+    <string name="txt_btn">calcular</string>
 </resources>
