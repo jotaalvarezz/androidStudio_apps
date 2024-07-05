@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="text_status">Estado del Estuante</string>
+    <string name="text_state"></string>
+    <string name="text_quimica">Quimica:</string>
+    <string name="text_matematicas">Matematicas:</string>
+    <string name="text_fisica">Fisica:</string>
+    <string name="text_res">Resultado:</string>
+    <string name="text_hint">nota</string>
+    <string name="btn">calcular</string>
+</resources>
