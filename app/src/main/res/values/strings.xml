@@ -3,4 +3,6 @@
     <string name="txt_title">Calculadora Basica</string>
     <string name="txt_hint">valor</string>
     <string name="txt_btn">calcular</string>
+    <string name="radio_text_suma">Sumar</string>
+    <string name="radio_text_resta">Restar</string>
 </resources>
