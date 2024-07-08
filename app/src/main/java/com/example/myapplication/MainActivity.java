@@ -76,6 +76,9 @@ public class MainActivity extends AppCompatActivity {
                 res = (Float.parseFloat(num1)-Float.parseFloat(num2));
                 twr.setText(String.valueOf(res));
                 break;
+            default:
+                Toast.makeText(this, "Selecione una operacion", Toast.LENGTH_SHORT).show();
+                break;
         }
     }
 
