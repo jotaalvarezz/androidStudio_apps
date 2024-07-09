@@ -8,124 +8,98 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/text_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="152dp"
-        android:text="@string/text_status"
-        android:textSize="20sp"
+        android:layout_marginStart="144dp"
+        android:layout_marginTop="116dp"
+        android:text="@string/txt_title"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView2"
+    <EditText
+        android:id="@+id/input_num1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="16dp"
-        android:text="@string/text_quimica"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
-
-    <EditText
-        android:id="@+id/text_value1"
-        android:layout_width="314dp"
-        android:layout_height="51dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="28dp"
         android:ems="10"
-        android:hint="@string/text_hint"
+        android:hint="@string/hint_valor"
         android:inputType="numberDecimal"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/text_title" />
 
     <EditText
-        android:id="@+id/text_value2"
-        android:layout_width="308dp"
-        android:layout_height="51dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:hint="@string/text_hint"
-        android:inputType="numberDecimal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
-
-    <EditText
-        android:id="@+id/text_value3"
-        android:layout_width="306dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:hint="@string/text_hint"
-        android:inputType="numberDecimal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
-
-    <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/input_num2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="24dp"
-        android:text="@string/text_matematicas"
-        android:textSize="16sp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="12dp"
+        android:ems="10"
+        android:hint="@string/hint_valor"
+        android:inputType="numberDecimal"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_value1" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="32dp"
-        android:text="@string/text_fisica"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_value2" />
+        app:layout_constraintTop_toBottomOf="@+id/input_num1" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="44dp"
         android:onClick="calculate"
-        android:text="@string/btn"
+        android:text="@string/btn_text"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_value3" />
+        app:layout_constraintTop_toBottomOf="@+id/check_div" />
 
-    <TextView
-        android:id="@+id/textView5"
+    <CheckBox
+        android:id="@+id/check_suma"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="60dp"
-        android:text="@string/text_res"
-        android:textSize="16sp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="12dp"
+        android:text="@string/check_suma"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintTop_toBottomOf="@+id/input_num2" />
 
-    <EditText
-        android:id="@+id/editTextText"
-        android:layout_width="86dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="60dp"
-        android:ems="10"
-        android:inputType="text"
-        app:layout_constraintStart_toEndOf="@+id/textView5"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+    <CheckBox
+        android:id="@+id/check_mul"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="12dp"
+        android:text="@string/check_multiplicacion"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/check_resta" />
+
+    <CheckBox
+        android:id="@+id/check_resta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="12dp"
+        android:text="@string/check_resta"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/check_suma" />
+
+    <CheckBox
+        android:id="@+id/check_div"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="12dp"
+        android:text="@string/check_dividir"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/check_mul" />
 
     <TextView
-        android:id="@+id/textView6"
-        android:layout_width="112dp"
-        android:layout_height="22dp"
-        android:layout_marginStart="40dp"
-        android:textStyle="bold"
+        android:id="@+id/text_res"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="76dp"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.102"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/btn" />
 </androidx.constraintlayout.widget.ConstraintLayout>

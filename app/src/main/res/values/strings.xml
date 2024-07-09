@@ -1,11 +1,10 @@
 <resources>
     <string name="app_name">My Application</string>
-    <string name="text_status">Estado del Estuante</string>
-    <string name="text_state"></string>
-    <string name="text_quimica">Quimica:</string>
-    <string name="text_matematicas">Matematicas:</string>
-    <string name="text_fisica">Fisica:</string>
-    <string name="text_res">Resultado:</string>
-    <string name="text_hint">nota</string>
-    <string name="btn">calcular</string>
+    <string name="txt_title">Calculadora Check</string>
+    <string name="hint_valor">valor</string>
+    <string name="check_suma">Sumar</string>
+    <string name="check_resta">Restar</string>
+    <string name="check_multiplicacion">Multiplicacion</string>
+    <string name="check_dividir">Division</string>
+    <string name="btn_text">Calcular</string>
 </resources>
