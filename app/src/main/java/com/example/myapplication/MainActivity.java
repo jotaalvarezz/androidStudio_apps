@@ -21,8 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText et1;
     private EditText et2;
     private RadioGroup rg;
-    private RadioButton rb1;
-    private RadioButton rb2;
+    private RadioButton rb1, rb2, rb3, rb4;
     private TextView twr;
     private String operation = "";
 
@@ -36,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
         rg = (RadioGroup)findViewById(R.id.radioGroup);
         rb1 = (RadioButton)findViewById(R.id.radioButton);
         rb2 = (RadioButton)findViewById(R.id.radioButton2);
+        rb3 = (RadioButton)findViewById(R.id.radioButton3);
+        rb4 = (RadioButton)findViewById(R.id.radioButton4);
         twr = (TextView)findViewById(R.id.textView2);
         rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -46,6 +47,10 @@ public class MainActivity extends AppCompatActivity {
                 }else if(rb2.getId() == i){
                     //twr.setText(String.valueOf("valor: "+rb2.getText()));
                     operation = "R";
+                } else if (rb3.getId() == i) {
+                    operation = "M";
+                } else if (rb4.getId() == i) {
+                    operation = "D";
                 }
             }
         });
@@ -73,8 +78,20 @@ public class MainActivity extends AppCompatActivity {
                 twr.setText(String.valueOf(res));
                 break;
             case "R":
-                res = (Float.parseFloat(num1)-Float.parseFloat(num2));
+                res = (Float.parseFloat(num1) - Float.parseFloat(num2));
                 twr.setText(String.valueOf(res));
+                break;
+            case "M":
+                res = (Float.parseFloat(num1) * Float.parseFloat(num2));
+                twr.setText(String.valueOf(res));
+                break;
+            case "D":
+                if(Float.parseFloat(num2) != 0){
+                    res = (Float.parseFloat(num1) / Float.parseFloat(num2));
+                    twr.setText(String.valueOf(res));
+                }else{
+                    Toast.makeText(this, "el valor del campo 2 no es valido!", Toast.LENGTH_SHORT).show();
+                }
                 break;
             default:
                 Toast.makeText(this, "Selecione una operacion", Toast.LENGTH_SHORT).show();
