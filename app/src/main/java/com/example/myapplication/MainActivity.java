@@ -2,8 +2,11 @@ package com.example.myapplication;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,24 +15,28 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import java.math.BigDecimal;
+import java.sql.Array;
 
 public class MainActivity extends AppCompatActivity {
-    private EditText edt1;
-    private EditText edt2;
-    private EditText edt3;
-    private EditText edt4;
-    private TextView tw1;
+    private EditText et1;
+    private EditText et2;
+    private Spinner spinner;
+    private TextView tw_res;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
-        edt1 = (EditText) findViewById(R.id.text_value1);
-        edt2 = (EditText) findViewById(R.id.text_value2);
-        edt3 = (EditText) findViewById(R.id.text_value3);
-        edt4 = (EditText) findViewById(R.id.editTextText);
-        tw1 = (TextView) findViewById(R.id.textView6);
+        et1 = (EditText)findViewById(R.id.input_num1);
+        et2 = (EditText)findViewById(R.id.input_num2);
+        tw_res = (TextView)findViewById(R.id.txt_res);
+        spinner = (Spinner)findViewById(R.id.spinner);
+
+        String options[] = {"Sumar","Restar","Multiplicar","Dividir"};
+        ArrayAdapter <String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, options);
+        spinner.setAdapter(adapter);
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -38,27 +45,38 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void calculate(View view){
-        String value1 = edt1.getText().toString();
-        String value2 = edt2.getText().toString();
-        String value3 = edt3.getText().toString();
+        String num1 = et1.getText().toString();
+        String num2 = et2.getText().toString();
+        String selection = spinner.getSelectedItem().toString();
 
-        float prom = 0;
-
-        float note1 = Float.parseFloat(value1);
-        float note2 = Float.parseFloat(value2);
-        float note3 = Float.parseFloat(value3);
-
-        prom = (note1 + note2 + note3) / 3;
-
-        String res = "";
-        String promedio = String.valueOf(prom);
-        if(prom >= 6){
-            res = String.valueOf("aprobado");
-        }else if(prom < 6){
-            res = String.valueOf("reprobado");
+        if(num1 == null || num1.isEmpty() || num2 == null || num2.isEmpty()){
+            Toast.makeText(this, "¡Campo vacio!", Toast.LENGTH_SHORT).show();
+            return;
         }
 
-        tw1.setText(res);
-        edt4.setText(promedio);
+        float res = 0;
+
+        switch (selection){
+            case "Sumar":
+                res = Float.parseFloat(num1) + Float.parseFloat(num2);
+                tw_res.setText(String.valueOf(res));
+                break;
+            case "Restar":
+                res = Float.parseFloat(num1) - Float.parseFloat(num2);
+                tw_res.setText(String.valueOf(res));
+                break;
+            case "Multiplicar":
+                res = Float.parseFloat(num1) * Float.parseFloat(num2);
+                tw_res.setText(String.valueOf(res));
+                break;
+            case "Dividir":
+                if(Float.parseFloat(num2) != 0){
+                    res = Float.parseFloat(num1) / Float.parseFloat(num2);
+                    tw_res.setText(String.valueOf(res));
+                }else{
+                    Toast.makeText(this, "Valor 2 no valido ", Toast.LENGTH_SHORT).show();
+                }
+                break;
+        }
     }
 }

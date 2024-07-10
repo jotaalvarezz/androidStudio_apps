@@ -9,123 +9,67 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="152dp"
-        android:text="@string/text_status"
+        android:layout_width="186dp"
+        android:layout_height="33dp"
+        android:layout_marginStart="112dp"
+        android:layout_marginTop="108dp"
+        android:text="@string/txt_title"
+        android:textAlignment="center"
         android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView2"
+    <EditText
+        android:id="@+id/input_num1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="16dp"
-        android:text="@string/text_quimica"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
-
-    <EditText
-        android:id="@+id/text_value1"
-        android:layout_width="314dp"
-        android:layout_height="51dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="100dp"
         android:ems="10"
-        android:hint="@string/text_hint"
+        android:hint="@string/txt_hint"
         android:inputType="numberDecimal"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <EditText
-        android:id="@+id/text_value2"
-        android:layout_width="308dp"
-        android:layout_height="51dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:hint="@string/text_hint"
-        android:inputType="numberDecimal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
-
-    <EditText
-        android:id="@+id/text_value3"
-        android:layout_width="306dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:hint="@string/text_hint"
-        android:inputType="numberDecimal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
-
-    <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/input_num2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="24dp"
-        android:text="@string/text_matematicas"
-        android:textSize="16sp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="36dp"
+        android:ems="10"
+        android:hint="@string/txt_hint"
+        android:inputType="numberDecimal"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_value1" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="32dp"
-        android:text="@string/text_fisica"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_value2" />
+        app:layout_constraintTop_toBottomOf="@+id/input_num1" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="152dp"
+        android:layout_marginTop="104dp"
         android:onClick="calculate"
         android:text="@string/btn"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_value3" />
+        app:layout_constraintTop_toBottomOf="@+id/spinner" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="206dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="36dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/input_num2" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/txt_res"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="60dp"
-        android:text="@string/text_res"
-        android:textSize="16sp"
+        android:layout_marginStart="204dp"
+        android:layout_marginTop="68dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button" />
-
-    <EditText
-        android:id="@+id/editTextText"
-        android:layout_width="86dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="60dp"
-        android:ems="10"
-        android:inputType="text"
-        app:layout_constraintStart_toEndOf="@+id/textView5"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
-
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="112dp"
-        android:layout_height="22dp"
-        android:layout_marginStart="40dp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
 </androidx.constraintlayout.widget.ConstraintLayout>
