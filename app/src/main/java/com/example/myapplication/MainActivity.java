@@ -47,6 +47,14 @@ public class MainActivity extends AppCompatActivity {
 
     public void  calculate(View view){
         ArrayList<String> operations = new ArrayList<>();
+        String num1 = et1.getText().toString();
+        String num2 = et2.getText().toString();
+
+        if(num1 == null || num1.isEmpty() || num2 == null || num2.isEmpty()){
+            Toast.makeText(this, "campo vacio", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         float value1 = Float.parseFloat(et1.getText().toString());
         float value2 = Float.parseFloat(et2.getText().toString());
 
@@ -64,16 +72,6 @@ public class MainActivity extends AppCompatActivity {
 
         if(check_div.isChecked()){
             operations.add("division");
-        }
-
-        if(et1.getText().toString() == null){
-            Toast.makeText(this, "¡No hay valor en el campo uno!", Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        if(et2.getText().toString() == null){
-            Toast.makeText(this, "¡No hay valor en el campo dos!", Toast.LENGTH_SHORT).show();
-            return;
         }
 
         if(operations.size() == 0){
