@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         spinner = (Spinner)findViewById(R.id.spinner);
 
         String options[] = {"Sumar","Restar","Multiplicar","Dividir"};
-        ArrayAdapter <String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, options);
+        ArrayAdapter <String> adapter = new ArrayAdapter<>(this, R.layout.spinner_item_jesus, options);
         spinner.setAdapter(adapter);
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
