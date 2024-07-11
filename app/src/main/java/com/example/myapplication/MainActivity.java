@@ -14,12 +14,15 @@ import androidx.core.view.WindowInsetsCompat;
 import java.math.BigDecimal;
 
 public class MainActivity extends AppCompatActivity {
+    private EditText et1;
+    private EditText et2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
+        et1 = (EditText)findViewById(R.id.)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);

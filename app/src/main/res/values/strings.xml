@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">My Application</string>
+    <string name="txt_title">Edit Text</string>
+    <string name="hit_user">usuario</string>
+    <string name="hint_password">contraseña</string>
+    <string name="btn_name">Iniciar</string>
 </resources>
