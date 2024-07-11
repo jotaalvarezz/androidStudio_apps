@@ -12,21 +12,24 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="24dp"
         android:onClick="next"
         android:text="@string/btn_siguiente"
         android:textSize="18dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_parametro" />
 
-    <TextView
-        android:id="@+id/textView"
+    <EditText
+        android:id="@+id/txt_parametro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="48dp"
-        android:text="@string/txt_one"
+        android:layout_marginTop="84dp"
+        android:ems="10"
+        android:hint="@string/txt_one"
+        android:inputType="text"
         android:textSize="18dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

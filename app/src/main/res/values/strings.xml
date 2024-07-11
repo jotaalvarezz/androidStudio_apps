@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">My Application</string>
     <string name="txt_one">Activity uno</string>
-    <string name="txt_two">Activity dos</string>
-    <string name="btn_siguiente">Siguiente</string>
+    <string name="txt_two">Nombre</string>
+    <string name="btn_siguiente">Enviar</string>
     <string name="btn_anterior">Anterior</string>
 </resources>
