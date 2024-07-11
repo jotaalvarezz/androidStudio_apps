@@ -49,8 +49,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="160dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="56dp"
         android:text="@string/btn_name"
+        android:onClick="Login"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_password" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
