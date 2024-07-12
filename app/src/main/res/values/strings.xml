@@ -2,5 +2,7 @@
     <string name="app_name">My Application</string>
     <string name="txt_title">Chared Preferences</string>
     <string name="txt_input">E-mail</string>
+    <string name="txt_mul">datos</string>
     <string name="btn">Guardar</string>
+    <string name="btn2">Buscar</string>
 </resources>
