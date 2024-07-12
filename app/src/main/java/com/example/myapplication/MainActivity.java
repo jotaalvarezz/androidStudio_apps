@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
-        et1 = (EditText)findViewById(R.id.txt_parametro);
+        et1 = (EditText)findViewById(R.id.txt_url);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -31,8 +31,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void next(View view){
-        Intent siguiente = new Intent(this, MainActivity2.class);
-        siguiente.putExtra("data", et1.getText().toString());
-        startActivity(siguiente);
+        Intent i = new Intent(this, MainActivity2.class);
+        i.putExtra("url",et1.getText().toString());
+        startActivity(i);
     }
 }
