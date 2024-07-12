@@ -1,6 +1,8 @@
 package com.example.myapplication;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -17,12 +19,15 @@ import java.math.BigDecimal;
 
 public class MainActivity extends AppCompatActivity {
     private EditText et1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
-        et1 = (EditText)findViewById(R.id.txt_url);
+        et1 = (EditText) findViewById(R.id.text_value1);
+        SharedPreferences preferences = getSharedPreferences("dato", Context.MODE_PRIVATE);
+        et1.setText(preferences.getString("mail", ""));
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -30,9 +35,11 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void next(View view){
-        Intent i = new Intent(this, MainActivity2.class);
-        i.putExtra("url",et1.getText().toString());
-        startActivity(i);
+    public void saveChared(View view){
+        SharedPreferences preferens = getSharedPreferences("dato", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferens.edit();
+        editor.putString("mail",et1.getText().toString());
+        editor.commit();
+        finish();
     }
 }

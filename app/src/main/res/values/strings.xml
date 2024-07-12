@@ -1,7 +1,6 @@
 <resources>
     <string name="app_name">My Application</string>
-    <string name="txt_one">Url</string>
-    <string name="txt_two">Nombre</string>
-    <string name="btn_siguiente">Enviar</string>
-    <string name="btn_anterior">Anterior</string>
+    <string name="txt_title">Chared Preferences</string>
+    <string name="txt_input">E-mail</string>
+    <string name="btn">Guardar</string>
 </resources>
