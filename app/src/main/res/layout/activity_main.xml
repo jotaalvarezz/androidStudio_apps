@@ -7,63 +7,42 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/text_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="124dp"
-        android:layout_marginTop="60dp"
-        android:text="@string/txt_title"
-        android:textSize="18dp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <EditText
-        android:id="@+id/text_value1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="48dp"
+        android:id="@+id/text_mul"
+        android:layout_width="380dp"
+        android:layout_height="399dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:background="#0080FF"
+        android:textColor="#FFFFFF"
         android:ems="10"
-        android:hint="@string/txt_input"
-        android:inputType="text"
+        android:gravity="start|top"
+        android:hint="@string/text_mul"
+        android:padding="10dp"
+        android:textSize="18dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_title" />
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="104dp"
-        android:layout_marginTop="60dp"
-        android:onClick="saveChared"
-        android:text="@string/btn"
+        android:layout_marginStart="156dp"
+        android:layout_marginTop="24dp"
+        android:onClick="save"
+        android:text="@string/btn_save"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_mul" />
 
-    <EditText
-        android:id="@+id/text_mul"
+    <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="56dp"
-        android:ems="10"
-        android:gravity="start|top"
-        android:hint="@string/txt_mul"
-        android:inputType="textMultiLine"
+        android:layout_marginStart="156dp"
+        android:layout_marginTop="84dp"
+        android:text="@string/txt_title"
+        android:textSize="20dp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_value1" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="100dp"
-        android:onClick="searh"
-        android:text="@string/btn2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_mul" />
-
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
