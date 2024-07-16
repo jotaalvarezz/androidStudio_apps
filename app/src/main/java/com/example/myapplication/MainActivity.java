@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Environment;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -17,6 +18,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -24,6 +26,7 @@ import java.io.OutputStreamWriter;
 import java.math.BigDecimal;
 
 public class MainActivity extends AppCompatActivity {
+    private EditText et1;
     private EditText etm;
 
     @Override
@@ -31,28 +34,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
+        et1 = (EditText)findViewById(R.id.text_search);
         etm = (EditText)findViewById(R.id.text_mul);
-        //fileList trae un Array con todos los archivos almacenados en el dispositivo
-        String files[] = fileList();
-
-        if (FileExist(files, "bitacora.txt")){
-            //La clase InputStreamReader nos permite abrir un archivo para poder leerlo
-            try {
-                InputStreamReader file = new InputStreamReader(openFileInput("bitacora.txt"));
-                BufferedReader br = new BufferedReader(file);
-                String line = br.readLine();
-                String bitacora = "";
-                while (line != null){
-                    bitacora = bitacora + line + "\n";
-                    line = br.readLine();
-                }
-                br.close();
-                file.close();
-                etm.setText(bitacora);
-            }catch (IOException e) {
-                System.out.println(e.getMessage());
-            }
-        }
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -71,15 +54,48 @@ public class MainActivity extends AppCompatActivity {
 
     public void save(View view){
         //OutputStreamWriter no ayuda a mandar texto que vamos a escribir en un archivo
-        try {
-            OutputStreamWriter file = new OutputStreamWriter(openFileOutput("bitacora.txt", Activity.MODE_PRIVATE));
-            file.write(etm.getText().toString());
-            file.flush();
-            file.close();
-        } catch (IOException e) {
+        String name = et1.getText().toString();
+        String content = etm.getText().toString();
 
+        File registerSD = Environment.getExternalStorageDirectory();
+        String directory = registerSD.getPath();
+        File directoryFile = new File(directory, name);
+
+        Toast.makeText(this,"ruta : "+directory, Toast.LENGTH_SHORT).show();
+        try {
+            OutputStreamWriter file = new OutputStreamWriter(openFileOutput(name,Activity.MODE_PRIVATE));
+            if(!content.isEmpty()){
+                file.write(content);
+                file.flush();
+                file.close();
+                Toast.makeText(this,"¡Bitacora Creada!", Toast.LENGTH_SHORT).show();
+            }
+        } catch (IOException e) {
+            Toast.makeText(this,"error : "+e.getMessage(), Toast.LENGTH_SHORT).show();
         }
-        Toast.makeText(this, "Bitacora guardada correctamente", Toast.LENGTH_SHORT).show();
-        finish();
+    }
+
+    public void search(View view ){
+        String name = et1.getText().toString();
+
+        File registerSD = Environment.getExternalStorageDirectory();
+        String directory = registerSD.getPath();
+        File directoryFile = new File(directory, name);
+
+        try {
+            InputStreamReader file = new InputStreamReader(openFileInput(name));
+            BufferedReader br = new BufferedReader(file);
+            String line = br.readLine();
+            String info = "";
+            while (line != null){
+                info = info + line + "\n";
+                line = br.readLine();
+            }
+            br.close();
+            file.close();
+            etm.setText(info);
+        } catch (IOException e) {
+            Toast.makeText(this,"error : "+e.getMessage(), Toast.LENGTH_SHORT).show();
+        }
     }
 }

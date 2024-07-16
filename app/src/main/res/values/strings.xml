@@ -2,5 +2,7 @@
     <string name="app_name">My Application</string>
     <string name="text_mul">Bitacora</string>
     <string name="btn_save">Guardar</string>
+    <string name="btn_search">Consultar</string>
     <string name="txt_title">Bitacora</string>
+    <string name="txt_search">nombre</string>
 </resources>
