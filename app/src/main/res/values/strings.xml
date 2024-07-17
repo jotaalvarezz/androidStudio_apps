@@ -1,8 +1,11 @@
 <resources>
     <string name="app_name">My Application</string>
-    <string name="text_mul">Bitacora</string>
+    <string name="txt_title">SQLite</string>
+    <string name="txt_code">codigo</string>
+    <string name="txt_price">precio</string>
+    <string name="txt_description">descripcion</string>
     <string name="btn_save">Guardar</string>
-    <string name="btn_search">Consultar</string>
-    <string name="txt_title">Bitacora</string>
-    <string name="txt_search">nombre</string>
+    <string name="btn_show">buscar</string>
+    <string name="btn_update">Actualizar</string>
+    <string name="btn_delete">Eliminar</string>
 </resources>

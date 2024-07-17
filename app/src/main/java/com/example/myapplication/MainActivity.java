@@ -1,9 +1,12 @@
 package com.example.myapplication;
 
 import android.app.Activity;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.View;
@@ -26,16 +29,15 @@ import java.io.OutputStreamWriter;
 import java.math.BigDecimal;
 
 public class MainActivity extends AppCompatActivity {
-    private EditText et1;
-    private EditText etm;
-
+    EditText et_code, et_description, et_price;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
-        et1 = (EditText)findViewById(R.id.text_search);
-        etm = (EditText)findViewById(R.id.text_mul);
+        et_code = (EditText)findViewById(R.id.text_code);
+        et_description = (EditText)findViewById(R.id.text_description);
+        et_price = (EditText)findViewById(R.id.text_price);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -43,59 +45,100 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private boolean FileExist(String[] files, String name_file){
-        for (int i = 0; i < files.length; i++) {
-            if(files[i].equals(name_file)){
-                return true;
-            }
-        }
-        return false;
-    }
-
     public void save(View view){
-        //OutputStreamWriter no ayuda a mandar texto que vamos a escribir en un archivo
-        String name = et1.getText().toString();
-        String content = etm.getText().toString();
+         String code = et_code.getText().toString();
+         String description = et_description.getText().toString();
+         String price = et_price.getText().toString();
 
-        File registerSD = Environment.getExternalStorageDirectory();
-        String directory = registerSD.getPath();
-        File directoryFile = new File(directory, name);
+         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "administracion", null, 1);
+         SQLiteDatabase db = admin.getWritableDatabase();
 
-        Toast.makeText(this,"ruta : "+directory, Toast.LENGTH_SHORT).show();
-        try {
-            OutputStreamWriter file = new OutputStreamWriter(openFileOutput(name,Activity.MODE_PRIVATE));
-            if(!content.isEmpty()){
-                file.write(content);
-                file.flush();
-                file.close();
-                Toast.makeText(this,"¡Bitacora Creada!", Toast.LENGTH_SHORT).show();
+         if(!code.isEmpty() || !description.isEmpty() || !price.isEmpty()){
+             ContentValues registro = new ContentValues();
+             registro.put("codigo",code);
+             registro.put("descripcion", description);
+             registro.put("precio", price);
+             db.insert("articulos", null, registro);
+             db.close();
+             et_code.setText("");
+             et_description.setText("");
+             et_price.setText("");
+             Toast.makeText(this, "articulo creado", Toast.LENGTH_SHORT).show();
+         } else{
+             Toast.makeText(this, "hay un campo vacio", Toast.LENGTH_SHORT).show();
+         }
+    }
+
+    public void show(View view){
+        String code = et_code.getText().toString();
+
+        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "administracion", null, 1);
+        SQLiteDatabase db = admin.getWritableDatabase();
+
+        if(!code.isEmpty()){
+            Cursor file = db.rawQuery("SELECT descripcion, precio FROM articulos WHERE codigo = "+code, null);
+
+            if(file.moveToFirst()){
+                et_description.setText(file.getString(0));
+                et_price.setText(file.getString(1));
+                db.close();
+            } else {
+                Toast.makeText(this, "No hay registros con la refencia", Toast.LENGTH_SHORT).show();
+                db.close();
             }
-        } catch (IOException e) {
-            Toast.makeText(this,"error : "+e.getMessage(), Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, "hay un campo vacio", Toast.LENGTH_SHORT).show();
         }
     }
 
-    public void search(View view ){
-        String name = et1.getText().toString();
+    public void update(View view){
+        String codigo = et_code.getText().toString();
+        String descripcion = et_description.getText().toString();
+        String precio = et_price.getText().toString();
 
-        File registerSD = Environment.getExternalStorageDirectory();
-        String directory = registerSD.getPath();
-        File directoryFile = new File(directory, name);
+        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "administracion", null, 1);
+        SQLiteDatabase db = admin.getWritableDatabase();
 
-        try {
-            InputStreamReader file = new InputStreamReader(openFileInput(name));
-            BufferedReader br = new BufferedReader(file);
-            String line = br.readLine();
-            String info = "";
-            while (line != null){
-                info = info + line + "\n";
-                line = br.readLine();
+        if(!codigo.isEmpty() || !descripcion.isEmpty() || !precio.isEmpty()){
+            ContentValues registro = new ContentValues();
+            registro.put("codigo", codigo);
+            registro.put("descripcion", descripcion);
+            registro.put("precio", precio);
+
+            int amount = db.update("articulos", registro, "codigo="+codigo, null);
+            db.close();
+
+            if(amount == 1) {
+                Toast.makeText(this, "Articulo modificado correctamente", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, "Articulo no existe", Toast.LENGTH_SHORT).show();
             }
-            br.close();
-            file.close();
-            etm.setText(info);
-        } catch (IOException e) {
-            Toast.makeText(this,"error : "+e.getMessage(), Toast.LENGTH_SHORT).show();
+
+        } else {
+            Toast.makeText(this, "Debe llenar todos los campos", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void destroy(View view){
+        String codigo = et_code.getText().toString();
+        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "administracion", null, 1);
+        SQLiteDatabase db = admin.getWritableDatabase();
+
+        if(!codigo.isEmpty()){
+            int amount = db.delete("articulos", "codigo="+codigo,null);
+            db.close();
+            et_code.setText("");
+            et_description.setText("");
+            et_price.setText("");
+
+            if(amount == 1){
+                Toast.makeText(this, "Articulo eliminado exitosamente", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, "El articulo no existe", Toast.LENGTH_SHORT).show();
+            }
+
+        } else {
+            Toast.makeText(this, "Debe introducir codigo del articulo", Toast.LENGTH_SHORT).show();
         }
     }
 }
