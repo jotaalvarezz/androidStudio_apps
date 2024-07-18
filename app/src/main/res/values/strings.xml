@@ -2,4 +2,6 @@
     <string name="app_name">My Application</string>
 
     <string name="description">descripcion</string>
+    <string name="btn_soundpool">AUDIO CON SOUNDPOOL</string>
+    <string name="btn_mediaplayer">AUDIO CON MEDIAPLAYER</string>
 </resources>

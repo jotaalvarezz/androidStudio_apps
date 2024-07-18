@@ -7,144 +7,25 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <ScrollView
-        android:layout_width="401dp"
-        android:layout_height="759dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+    <Button
+        android:id="@+id/button_play"
+        android:layout_width="255dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="312dp"
+        android:onClick="AudioSoundPool"
+        android:text="@string/btn_soundpool"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <ImageButton
-                android:id="@+id/zarzamora"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@android:color/transparent"
-                android:contentDescription="@string/description"
-                android:onClick="Frutas"
-                app:srcCompat="@drawable/zarzamora" />
-
-            <ImageButton
-                android:id="@+id/uvas"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/design_default_color_secondary_variant"
-                android:contentDescription="@string/description"
-                android:onClick="Frutas"
-                app:srcCompat="@drawable/uvas" />
-
-            <ImageButton
-                android:id="@+id/sandia"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@android:color/transparent"
-                android:contentDescription="@string/description"
-                android:onClick="Frutas"
-                app:srcCompat="@drawable/sandia" />
-
-            <ImageButton
-                android:id="@+id/pina"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/design_default_color_secondary_variant"
-                android:contentDescription="@string/description"
-                android:onClick="Frutas"
-                app:srcCompat="@drawable/pina" />
-
-            <ImageButton
-                android:id="@+id/peras"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@android:color/transparent"
-                android:contentDescription="@string/description"
-                android:onClick="Frutas"
-                app:srcCompat="@drawable/pera" />
-
-            <ImageButton
-                android:id="@+id/naranjas"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/design_default_color_secondary_variant"
-                android:contentDescription="@string/description"
-                android:onClick="Frutas"
-                app:srcCompat="@drawable/naranjas" />
-
-            <ImageButton
-                android:id="@+id/melon"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@android:color/transparent"
-                android:contentDescription="@string/description"
-                android:onClick="Frutas"
-                app:srcCompat="@drawable/melon" />
-
-            <ImageButton
-                android:id="@+id/manzanas"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/design_default_color_secondary_variant"
-                android:contentDescription="@string/description"
-                android:onClick="Frutas"
-                app:srcCompat="@drawable/manzanas" />
-
-            <ImageButton
-                android:id="@+id/mangos"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@android:color/transparent"
-                android:contentDescription="@string/description"
-                android:onClick="Frutas"
-                app:srcCompat="@drawable/mangos" />
-
-            <ImageButton
-                android:id="@+id/kiwis"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/design_default_color_secondary_variant"
-                android:contentDescription="@string/description"
-                android:onClick="Frutas"
-                app:srcCompat="@drawable/kiwis" />
-
-            <ImageButton
-                android:id="@+id/fresas"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@android:color/transparent"
-                android:contentDescription="@string/description"
-                android:onClick="Frutas"
-                app:srcCompat="@drawable/fresas" />
-
-            <ImageButton
-                android:id="@+id/frambuesas"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/design_default_color_secondary_variant"
-                android:contentDescription="@string/description"
-                android:onClick="Frutas"
-                app:srcCompat="@drawable/frambuesas" />
-
-            <ImageButton
-                android:id="@+id/cerezas"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@android:color/transparent"
-                android:contentDescription="@string/description"
-                android:onClick="Frutas"
-                app:srcCompat="@drawable/cerezas" />
-
-            <ImageButton
-                android:id="@+id/bananas"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/design_default_color_secondary_variant"
-                android:contentDescription="@string/description"
-                android:onClick="Frutas"
-                app:srcCompat="@drawable/bananas" />
-        </LinearLayout>
-    </ScrollView>
-
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="255dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="52dp"
+        android:onClick="AudiomediaPlayer"
+        android:text="@string/btn_mediaplayer"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_play" />
 </androidx.constraintlayout.widget.ConstraintLayout>
